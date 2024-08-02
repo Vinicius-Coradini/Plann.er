@@ -16,12 +16,18 @@ const buttonVariants = tv({
             full: 'w-full h-11'
         },
 
+        border: {
+            default: 'rounded-lg',
+            borderNone: 'rounded-none'
+        },
+
     },
 
     //Serve para ter um padrão caso eu não informar
     defaultVariants: {
         variant: 'primary',
-        size: 'default'
+        size: 'default',
+        default: 'default'
     }
 })
 
@@ -33,11 +39,12 @@ export function Button({
     children,
     variant,
     size,
+    border,
     ...props
 
 }: ButtonProps) {
     return (
-        <button {...props} className={buttonVariants({ variant, size })}>
+        <button {...props} className={buttonVariants({ variant, size, border })}>
             {children}
         </button>
     )
